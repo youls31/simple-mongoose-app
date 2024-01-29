@@ -1,0 +1,9 @@
+<form action='/update' method='post'>
+Name: <%= person.nom %><br>
+<input name='nom' value='<%= person.nom %>' hidden>
+Email: <input name='mail' value='<%= person.mail %>'>
+<input type='submit' value='Update'>
+</form>
+
+</br> <a href='/public/index.html'>Create New Person</a>
+</br> <a href='/all'> show all </a>
