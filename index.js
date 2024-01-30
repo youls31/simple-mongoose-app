@@ -1,12 +1,12 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const PORT =process.env.PORT
+const PORT =process.env.PORT || 5001
 const MONGO_ADMIN=process.env.MONGO_ADMIN
 const MONGO_PASSWORD=process.env.MONGO_PASSWORD
 var app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
-mongoose.connect('mongodb://localhost:27017/personsDatabase');
+mongoose.connect('mongodb://127.0.0.1:27017/personsDatabase');
 mongoose.connection.on('open', function() {
 console.log('Connected to Mongodb');
 
