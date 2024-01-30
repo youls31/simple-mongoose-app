@@ -1,9 +1,12 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const PORT =process.env.PORT
+const MONGO_ADMIN=process.env.MONGO_ADMIN
+const MONGO_PASSWORD=process.env.MONGO_PASSWORD
 var app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
-mongoose.connect('mongodb://localhost:27017/personsDatabase');
+mongoose.connect(`mongodb://${MONGO_ADMIN}:${MONGO_PASSWORD}@mongo:27017/personsDatabase`);
 mongoose.connection.on('open', function() {
 console.log('Connected to Mongodb');
 
@@ -107,6 +110,6 @@ app.use('/', (req, res) => { res.redirect('/public/index.html'); } );
 
 
 
-app.listen(3000,  () => {
+app.listen(PORT,  () => {
 	console.log('Listening on port 3000');
     });
