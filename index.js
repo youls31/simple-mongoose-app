@@ -6,7 +6,7 @@ const MONGO_ADMIN=process.env.MONGO_ADMIN
 const MONGO_PASSWORD=process.env.MONGO_PASSWORD
 var app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
-mongoose.connect('mongodb://127.0.0.1:27017/personsDatabase');
+mongoose.connect('mongodb://mongo:27017/personsDatabase');
 mongoose.connection.on('open', function() {
 console.log('Connected to Mongodb');
 
